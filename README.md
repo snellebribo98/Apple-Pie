@@ -5,5 +5,5 @@ Een soort versie van galgje
 ![win screen](win.png)
 ![message screen](message.png)
 ![again screen](again.png)
-![normal again screen](normal again.png)
+![normal again screen](normalAgain.png)
 ![los screen](los.png)
