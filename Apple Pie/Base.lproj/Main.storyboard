@@ -285,6 +285,7 @@
                     </view>
                     <connections>
                         <outlet property="correctWordLabel" destination="c69-o7-Qm3" id="8bs-pI-s9X"/>
+                        <outlet property="letterStack" destination="vkf-Hr-XaS" id="2cd-Uo-vyF"/>
                         <outlet property="scoreLabel" destination="gwJ-NY-dE2" id="rAX-3V-blh"/>
                         <outlet property="startAgain" destination="MLk-rP-Kcd" id="uB5-rD-gXX"/>
                         <outlet property="threeImageView" destination="t4U-sY-FgY" id="wpY-gX-o0h"/>

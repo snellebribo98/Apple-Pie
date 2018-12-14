@@ -16,11 +16,14 @@ class ViewController: UIViewController
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet var letterButtons: [UIButton]!
     @IBOutlet weak var startAgain: UIButton!
+    @IBOutlet weak var letterStack: UIStackView!
     
     var initialWords = ["buccaneer", "swift", "glorious", "incandenscent", "bug", "program"]
     var countWords = ["buccaneer", "swift", "glorious", "incandenscent", "bug", "program"]
     var listOfWords: [String] = []
     var incorrectMovesAllowed = 7
+    var finalScore = 0
+    var roundCounter = 1
     
     // if there is a win or loss reset all the buttons
     var totalWins = 0
@@ -47,6 +50,7 @@ class ViewController: UIViewController
         incorrectMovesAllowed = 7
         totalWins = 0
         totalLoses = 0
+        roundCounter += 1
         
         viewDidLoad()
     }
@@ -67,12 +71,14 @@ class ViewController: UIViewController
         updateGameState()
     }
     
-    // hides the again button and shows tree image
+    // hides the again button and shows tree image, letters, word label
     override func viewDidLoad()
     {
         super.viewDidLoad()
         startAgain.isHidden = true
         threeImageView.isHidden = false
+        letterStack.isHidden = false
+        correctWordLabel.isHidden = false
         listOfWords = initialWords
         newRound()
     }
@@ -88,12 +94,17 @@ class ViewController: UIViewController
             
             updateUI()
         }
-        // if last word was correct, again button is shown and tree image is hidden
+        // if last word was correct, again button is shown and hides all remaining things
+        // besides the round, win, loss label
         else
         {
             enableLetterButtons(false)
             startAgain.isHidden = false
             threeImageView.isHidden = true
+            letterStack.isHidden = true
+            correctWordLabel.isHidden = true
+            finalScore = totalWins
+            scoreLabel.text = "Round: \(roundCounter), Wins: \(finalScore), Losses: \(totalLoses)"
         }
     }
     
@@ -116,7 +127,7 @@ class ViewController: UIViewController
         let wordWithSpacing = letters.joined(separator: " ")
         
         correctWordLabel.text = wordWithSpacing
-        scoreLabel.text = "Wins: \(totalWins), Losses: \(totalLoses)"
+        scoreLabel.text = "Round: \(roundCounter), Wins: \(totalWins), Losses: \(totalLoses)"
         threeImageView.image = UIImage(named: "Tree \(currentGame.incorrectMovesRemaining)")
         
     }
