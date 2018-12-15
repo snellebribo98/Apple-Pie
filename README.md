@@ -6,9 +6,8 @@ Een soort versie van galgje
 - Een optie om het spel opnieuw te doen indien alles correct
 - Het aantal rondes (hoevaak je het spel opnieuw begint na het winnen) word bijgehouden en getoont
 
-![normal screen](normal.png)
-![win screen](win.png)
-![message screen](message.png)
-![again screen](again.png)
-![normal again screen](normalAgain.png)
-![los screen](los.png)
+![normal screen](begin.png)
+![win screen](loss.png)
+![message screen](partial.png)
+![again screen](won.png)
+![normal again screen](new.png)
